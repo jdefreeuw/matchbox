@@ -100,7 +100,7 @@ func (s *Server) ignitionHandler(core server.Server) http.Handler {
 		// validate
 		ign, report, err := ignition.ParseCompatibleVersion(ignBytes)
 		if err != nil {
-			s.logger.Warningf("warning parsing Ignition: %s", report.String())
+			s.logger.Warningf("warning parsing Ignition: %s", err.Error())
 		}
 		s.renderJSON(w, ign)
 	}
